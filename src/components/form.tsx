@@ -29,7 +29,7 @@ const Formulario: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/send', respostas);
+      const response = await axios.post('https://backend-setembro-amarelo.onrender.com/send', respostas);
       console.log('Resposta do servidor:', response.data);
     } catch (error) {
       console.error('Erro ao enviar os dados:', error);
