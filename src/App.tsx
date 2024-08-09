@@ -19,7 +19,7 @@ function App() {
         <footer>
           <div className="flex flex-row justify-around items-center bg-selectiveyellow-700 text-selectiveyellow-400 left-0 fixed w-full bottom-0 h-16">
             <p className="text-center text-[10px] md:text-base">Desenvolvido por <a href="https://wentz.dev.br" target="_blank" rel="noopener noreferrer">Wentz.dev</a>, todos os direitos reservados. &#169;2024</p>
-            <a href="https://wentz.dev.br" target="_blank"><img className="size-20 md:size-24" src="/public/logo white.png" alt="logo wentz.dev.br"  /></a>
+            <a href="https://wentz.dev.br" target="_blank" className="size-20 md:size-24"><img src="/public/logo white.svg" alt="Logo Wentz.dev.br" /></a>
           </div>
         </footer>
     </main>
