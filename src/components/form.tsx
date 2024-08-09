@@ -37,7 +37,7 @@ const Formulario: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-selectiveyellow-950">
+    <form onSubmit={handleSubmit} className="flex flex-col pb-10 gap-4 text-selectiveyellow-950">
       <div className='flex flex-col gap-1'>
         <label>1- Você conhece ou já ouviu falar no setembro amarelo?</label>
         <div className='flex gap-3 ml-2'>
