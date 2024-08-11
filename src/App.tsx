@@ -6,8 +6,8 @@ function App() {
   const [questionarios, setQuestionarios] = useState([]);
   const addQuestionario = (novoQuestionario) => {
     setQuestionarios([...questionarios, novoQuestionario]);
-  };
-
+  }; 
+  
   return (
     <main className="flex flex-col w-full h-full items-center bg-gradient-to-t from-selectiveyellow-50 to-selectiveyellow-200">
 

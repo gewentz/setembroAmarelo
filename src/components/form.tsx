@@ -84,7 +84,7 @@ const Formulario = ({ addQuestionario }) => {
             name="q1"
             onChange={handleChange}
             value={formData.q1}
-            className="border rounded px-2 py-1 bg-selectiveyellow-400"
+            className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
             <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
             <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
@@ -101,7 +101,7 @@ const Formulario = ({ addQuestionario }) => {
             name="q2"
             onChange={handleChange}
             value={formData.q2}
-            className="border rounded px-2 py-1 bg-selectiveyellow-400"
+            className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
             <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
             <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
@@ -118,7 +118,7 @@ const Formulario = ({ addQuestionario }) => {
             name="q3"
             onChange={handleChange}
             value={formData.q3}
-            className="border rounded px-2 py-1 bg-selectiveyellow-400"
+            className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
             <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
             <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
@@ -135,7 +135,7 @@ const Formulario = ({ addQuestionario }) => {
             name="q4"
             onChange={handleChange}
             value={formData.q4}
-            className="border rounded px-2 py-1 bg-selectiveyellow-400"
+            className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
             <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
             <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
@@ -152,7 +152,7 @@ const Formulario = ({ addQuestionario }) => {
             name="q5"
             onChange={handleChange}
             value={formData.q5}
-            className="border rounded px-2 py-1 bg-selectiveyellow-400"
+            className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
             <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
             <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
@@ -169,7 +169,7 @@ const Formulario = ({ addQuestionario }) => {
             name="q6"
             onChange={handleChange}
             value={formData.q6}
-            className="border rounded px-2 py-1 bg-selectiveyellow-400"
+            className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
             <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
             <option className="hover:bg-selectiveyellow-200" value="Necessária">Necessária</option>
@@ -189,7 +189,7 @@ const Formulario = ({ addQuestionario }) => {
             name="q7"
             onChange={handleChange}
             value={formData.q7}
-            className="border rounded px-2 py-1 bg-selectiveyellow-400"
+            className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
             <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
             <option className="hover:bg-selectiveyellow-200" value="entre 13 e 17">entre 13 e 17</option>
@@ -207,7 +207,7 @@ const Formulario = ({ addQuestionario }) => {
             name="q8"
             onChange={handleChange}
             value={formData.q8}
-            className="border rounded px-2 py-1 bg-selectiveyellow-400"
+            className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
             <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
             <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
@@ -225,7 +225,7 @@ const Formulario = ({ addQuestionario }) => {
             name="q9"
             onChange={handleChange}
             value={formData.q9}
-            className="border rounded px-2 py-1 bg-selectiveyellow-400"
+            className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
             <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
             <option className="hover:bg-selectiveyellow-200" value="Bom">Bom</option>
@@ -243,7 +243,7 @@ const Formulario = ({ addQuestionario }) => {
             name="q10"
             onChange={handleChange}
             value={formData.q10}
-            className="border rounded px-2 py-1 bg-selectiveyellow-400"
+            className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
             <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
             <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
@@ -260,7 +260,7 @@ const Formulario = ({ addQuestionario }) => {
             name="q11"
             onChange={handleChange}
             value={formData.q11}
-            className="border rounded px-2 py-1 bg-selectiveyellow-400"
+            className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
             <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
             <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
@@ -277,7 +277,7 @@ const Formulario = ({ addQuestionario }) => {
             name="q12"
             onChange={handleChange}
             value={formData.q12}
-            className="border rounded px-2 py-1 bg-selectiveyellow-400"
+            className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
             <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
             <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
@@ -294,7 +294,7 @@ const Formulario = ({ addQuestionario }) => {
             name="q13"
             onChange={handleChange}
             value={formData.q13}
-            className="border rounded px-2 py-1 bg-selectiveyellow-400"
+            className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
             <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
             <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
@@ -311,7 +311,7 @@ const Formulario = ({ addQuestionario }) => {
             name="q14"
             onChange={handleChange}
             value={formData.q14}
-            className="border rounded px-2 py-1 bg-selectiveyellow-400"
+            className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
             <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
             <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
@@ -328,7 +328,7 @@ const Formulario = ({ addQuestionario }) => {
             name="q15"
             onChange={handleChange}
             value={formData.q15}
-            className="border rounded px-2 py-1 bg-selectiveyellow-400"
+            className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
             <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
             <option className="hover:bg-selectiveyellow-200" value="Financeiro">Financeiro</option>
