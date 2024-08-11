@@ -1,6 +1,12 @@
+import { useState } from "react";
 import Formulario from "./components/form"
 
 function App() {
+
+  const [questionarios, setQuestionarios] = useState([]);
+  const addQuestionario = (novoQuestionario) => {
+    setQuestionarios([...questionarios, novoQuestionario]);
+  };
 
   return (
     <main className="flex flex-col w-full h-full items-center bg-gradient-to-t from-selectiveyellow-50 to-selectiveyellow-200">
@@ -15,7 +21,7 @@ function App() {
 
           <div className="relative shadow-shape bg-selectiveyellow-200 p-4 md:p-10 flex flex-col md:gap-1 pb-10 mx-2">
             <h2 className="text-center uppercase font-bold text-selectiveyellow-950">Responda de forma sincera a todas as perguntas!</h2>
-            <Formulario />
+            <Formulario addQuestionario={addQuestionario}/>
           </div>
 
           <div className="relative p-4 md:p-10 flex md:gap-4 pb-10">
@@ -30,7 +36,7 @@ function App() {
           <div className="flex justify-center items-center bg-selectiveyellow-700 text-selectiveyellow-400 w-full h-16">
             <p className="text-center text-[10px] md:text-base">Desenvolvido por <a href="https://wentz.dev.br" target="_blank" rel="noopener noreferrer">Wentz.dev</a>, todos os direitos reservados. &#169;2024</p>
 
-            <a href="https://wentz.dev.br" target="_blank" className="size-20 md:size-24"><img src="/public/logo white.svg" alt="Logo Wentz.dev.br" /></a>
+            <a href="https://wentz.dev.br" target="_blank" className="size-20 md:size-24"><img src="/logo white.svg" alt="Logo Wentz.dev.br" /></a>
           </div>
         </footer>
     </main>
