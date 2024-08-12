@@ -1,8 +1,30 @@
 import { useState } from "react";
 import axios from "axios";
 
-const Formulario = ({ addQuestionario }) => {
-  const [formData, setFormData] = useState({
+interface Questionario {
+  q1: string;
+  q2: string;
+  q3: string;
+  q4: string;
+  q5: string;
+  q6: string;
+  q7: string;
+  q8: string;
+  q9: string;
+  q10: string;
+  q11: string;
+  q12: string;
+  q13: string;
+  q14: string;
+  q15: string;
+}
+
+type Props = {
+  addQuestionario: (data: Questionario) => void;
+};
+
+const Formulario = ({ addQuestionario }: Props) => {
+  const [formData, setFormData] = useState<Questionario>({
     q1: "",
     q2: "",
     q3: "",
@@ -20,14 +42,16 @@ const Formulario = ({ addQuestionario }) => {
     q15: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
@@ -40,11 +64,15 @@ const Formulario = ({ addQuestionario }) => {
           },
         }
       );
-      if (typeof addQuestionario === 'function') {
-        addQuestionario(response.data);
+
+      const novoQuestionario: Questionario = response.data;
+
+      if (typeof addQuestionario === "function") {
+        addQuestionario(novoQuestionario);
       } else {
         console.error("addQuestionario não é uma função");
       }
+
       setFormData({
         q1: "",
         q2: "",
@@ -62,11 +90,15 @@ const Formulario = ({ addQuestionario }) => {
         q14: "",
         q15: "",
       });
-    } catch (error) {
-      if (error.response) {
-        console.log("Erro da API:", error.response.data);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        if (err.message) {
+          console.log("Erro da API:", err.message);
+        } else {
+          console.log("Erro:", err.message);
+        }
       } else {
-        console.log("Erro:", error);
+        console.log("Erro desconhecido:", err);
       }
     }
   };
@@ -86,15 +118,23 @@ const Formulario = ({ addQuestionario }) => {
             value={formData.q1}
             className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
-            <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
-            <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
-            <option className="hover:bg-selectiveyellow-200" value="Não">Não</option>
+            <option className="hover:bg-selectiveyellow-200" value="">
+              Selecione
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Sim">
+              Sim
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Não">
+              Não
+            </option>
           </select>
         </div>
       </div>
 
       <div className="flex flex-col gap-1">
-        <label>2- Você conhecia a história de origem do setembro amarelo?</label>
+        <label>
+          2- Você conhecia a história de origem do setembro amarelo?
+        </label>
         <div className="flex gap-3 ml-2">
           <select
             required
@@ -103,15 +143,24 @@ const Formulario = ({ addQuestionario }) => {
             value={formData.q2}
             className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
-            <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
-            <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
-            <option className="hover:bg-selectiveyellow-200" value="Não">Não</option>
+            <option className="hover:bg-selectiveyellow-200" value="">
+              Selecione
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Sim">
+              Sim
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Não">
+              Não
+            </option>
           </select>
         </div>
       </div>
 
       <div className="flex flex-col gap-1">
-        <label>3- O termo Suicida Passivo, antes da palestra, era desconhecido por você?</label>
+        <label>
+          3- O termo Suicida Passivo, antes da palestra, era desconhecido por
+          você?
+        </label>
         <div className="flex gap-3 ml-2">
           <select
             required
@@ -120,15 +169,24 @@ const Formulario = ({ addQuestionario }) => {
             value={formData.q3}
             className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
-            <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
-            <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
-            <option className="hover:bg-selectiveyellow-200" value="Não">Não</option>
+            <option className="hover:bg-selectiveyellow-200" value="">
+              Selecione
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Sim">
+              Sim
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Não">
+              Não
+            </option>
           </select>
         </div>
       </div>
 
       <div className="flex flex-col gap-1">
-        <label>4- Você já foi/teve contato com alguém que necessitou de ajuda psicológica?</label>
+        <label>
+          4- Você já foi/teve contato com alguém que necessitou de ajuda
+          psicológica?
+        </label>
         <div className="flex gap-3 ml-2">
           <select
             required
@@ -137,9 +195,15 @@ const Formulario = ({ addQuestionario }) => {
             value={formData.q4}
             className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
-            <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
-            <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
-            <option className="hover:bg-selectiveyellow-200" value="Não">Não</option>
+            <option className="hover:bg-selectiveyellow-200" value="">
+              Selecione
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Sim">
+              Sim
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Não">
+              Não
+            </option>
           </select>
         </div>
       </div>
@@ -154,9 +218,15 @@ const Formulario = ({ addQuestionario }) => {
             value={formData.q5}
             className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
-            <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
-            <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
-            <option className="hover:bg-selectiveyellow-200" value="Não">Não</option>
+            <option className="hover:bg-selectiveyellow-200" value="">
+              Selecione
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Sim">
+              Sim
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Não">
+              Não
+            </option>
           </select>
         </div>
       </div>
@@ -171,10 +241,22 @@ const Formulario = ({ addQuestionario }) => {
             value={formData.q6}
             className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
-            <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
-            <option className="hover:bg-selectiveyellow-200" value="Necessária">Necessária</option>
-            <option className="hover:bg-selectiveyellow-200" value="Não Necessária">Não Necessária</option>
-            <option className="hover:bg-selectiveyellow-200" value="Não tenho uma opinião sobre isso">
+            <option className="hover:bg-selectiveyellow-200" value="">
+              Selecione
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Necessária">
+              Necessária
+            </option>
+            <option
+              className="hover:bg-selectiveyellow-200"
+              value="Não Necessária"
+            >
+              Não Necessária
+            </option>
+            <option
+              className="hover:bg-selectiveyellow-200"
+              value="Não tenho uma opinião sobre isso"
+            >
               Não tenho uma opinião sobre isso
             </option>
           </select>
@@ -191,16 +273,36 @@ const Formulario = ({ addQuestionario }) => {
             value={formData.q7}
             className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
-            <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
-            <option className="hover:bg-selectiveyellow-200" value="entre 13 e 17">entre 13 e 17</option>
-            <option className="hover:bg-selectiveyellow-200" value="entre 18 e 25">entre 18 e 25</option>
-            <option className="hover:bg-selectiveyellow-200" value="entre 26 a 40">entre 26 a 40</option>
+            <option className="hover:bg-selectiveyellow-200" value="">
+              Selecione
+            </option>
+            <option
+              className="hover:bg-selectiveyellow-200"
+              value="entre 13 e 17"
+            >
+              entre 13 e 17
+            </option>
+            <option
+              className="hover:bg-selectiveyellow-200"
+              value="entre 18 e 25"
+            >
+              entre 18 e 25
+            </option>
+            <option
+              className="hover:bg-selectiveyellow-200"
+              value="entre 26 a 40"
+            >
+              entre 26 a 40
+            </option>
           </select>
         </div>
       </div>
 
       <div className="flex flex-col gap-1">
-        <label>8- Você já ingeriu bebidas alcoólicas ou cigarros/palheiros/pods antes da maioridade (18 anos)?</label>
+        <label>
+          8- Você já ingeriu bebidas alcoólicas ou cigarros/palheiros/pods antes
+          da maioridade (18 anos)?
+        </label>
         <div className="flex gap-3 ml-2">
           <select
             required
@@ -209,16 +311,30 @@ const Formulario = ({ addQuestionario }) => {
             value={formData.q8}
             className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
-            <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
-            <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
-            <option className="hover:bg-selectiveyellow-200" value="Não">Não</option>
-            <option className="hover:bg-selectiveyellow-200" value="Prefiro não comentar">Prefiro não comentar</option>
+            <option className="hover:bg-selectiveyellow-200" value="">
+              Selecione
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Sim">
+              Sim
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Não">
+              Não
+            </option>
+            <option
+              className="hover:bg-selectiveyellow-200"
+              value="Prefiro não comentar"
+            >
+              Prefiro não comentar
+            </option>
           </select>
         </div>
       </div>
 
       <div className="flex flex-col gap-1">
-        <label>9- Como você avalia a assistência psicológica disponível na sua cidade?</label>
+        <label>
+          9- Como você avalia a assistência psicológica disponível na sua
+          cidade?
+        </label>
         <div className="flex gap-3 ml-2">
           <select
             required
@@ -227,10 +343,18 @@ const Formulario = ({ addQuestionario }) => {
             value={formData.q9}
             className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
-            <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
-            <option className="hover:bg-selectiveyellow-200" value="Bom">Bom</option>
-            <option className="hover:bg-selectiveyellow-200" value="Mediano">Mediano</option>
-            <option className="hover:bg-selectiveyellow-200" value="Ruim">Ruim</option>
+            <option className="hover:bg-selectiveyellow-200" value="">
+              Selecione
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Bom">
+              Bom
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Mediano">
+              Mediano
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Ruim">
+              Ruim
+            </option>
           </select>
         </div>
       </div>
@@ -245,9 +369,15 @@ const Formulario = ({ addQuestionario }) => {
             value={formData.q10}
             className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
-            <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
-            <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
-            <option className="hover:bg-selectiveyellow-200" value="Não">Não</option>
+            <option className="hover:bg-selectiveyellow-200" value="">
+              Selecione
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Sim">
+              Sim
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Não">
+              Não
+            </option>
           </select>
         </div>
       </div>
@@ -262,9 +392,15 @@ const Formulario = ({ addQuestionario }) => {
             value={formData.q11}
             className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
-            <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
-            <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
-            <option className="hover:bg-selectiveyellow-200" value="Não">Não</option>
+            <option className="hover:bg-selectiveyellow-200" value="">
+              Selecione
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Sim">
+              Sim
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Não">
+              Não
+            </option>
           </select>
         </div>
       </div>
@@ -279,15 +415,23 @@ const Formulario = ({ addQuestionario }) => {
             value={formData.q12}
             className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
-            <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
-            <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
-            <option className="hover:bg-selectiveyellow-200" value="Não">Não</option>
+            <option className="hover:bg-selectiveyellow-200" value="">
+              Selecione
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Sim">
+              Sim
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Não">
+              Não
+            </option>
           </select>
         </div>
       </div>
 
       <div className="flex flex-col gap-1">
-        <label>13- Você conhece algum centro de apoio psicológico em sua cidade?</label>
+        <label>
+          13- Você conhece algum centro de apoio psicológico em sua cidade?
+        </label>
         <div className="flex gap-3 ml-2">
           <select
             required
@@ -296,15 +440,23 @@ const Formulario = ({ addQuestionario }) => {
             value={formData.q13}
             className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
-            <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
-            <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
-            <option className="hover:bg-selectiveyellow-200" value="Não">Não</option>
+            <option className="hover:bg-selectiveyellow-200" value="">
+              Selecione
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Sim">
+              Sim
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Não">
+              Não
+            </option>
           </select>
         </div>
       </div>
 
       <div className="flex flex-col gap-1">
-        <label>14- Você considera importante o trabalho dos psicólogos e psiquiatras?</label>
+        <label>
+          14- Você considera importante o trabalho dos psicólogos e psiquiatras?
+        </label>
         <div className="flex gap-3 ml-2">
           <select
             required
@@ -313,15 +465,24 @@ const Formulario = ({ addQuestionario }) => {
             value={formData.q14}
             className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
-            <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
-            <option className="hover:bg-selectiveyellow-200" value="Sim">Sim</option>
-            <option className="hover:bg-selectiveyellow-200" value="Não">Não</option>
+            <option className="hover:bg-selectiveyellow-200" value="">
+              Selecione
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Sim">
+              Sim
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Não">
+              Não
+            </option>
           </select>
         </div>
       </div>
 
       <div className="flex flex-col gap-1">
-        <label>15- Quais fatores você acredita serem os principais obstáculos para o acesso à saúde mental?</label>
+        <label>
+          15- Quais fatores você acredita serem os principais obstáculos para o
+          acesso à saúde mental?
+        </label>
         <div className="flex gap-3 ml-2">
           <select
             required
@@ -330,13 +491,27 @@ const Formulario = ({ addQuestionario }) => {
             value={formData.q15}
             className="border rounded px-2 py-1 bg-selectiveyellow-400 w-full"
           >
-            <option className="hover:bg-selectiveyellow-200" value="">Selecione</option>
-            <option className="hover:bg-selectiveyellow-200" value="Financeiro">Financeiro</option>
-            <option className="hover:bg-selectiveyellow-200" value="Falta de confiança/medo do profissional">
+            <option className="hover:bg-selectiveyellow-200" value="">
+              Selecione
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Financeiro">
+              Financeiro
+            </option>
+            <option
+              className="hover:bg-selectiveyellow-200"
+              value="Falta de confiança/medo do profissional"
+            >
               Falta de confiança/medo do profissional
             </option>
-            <option className="hover:bg-selectiveyellow-200" value="Nada me impede">Nada me impede</option>
-            <option className="hover:bg-selectiveyellow-200" value="Outro">Outro</option>
+            <option
+              className="hover:bg-selectiveyellow-200"
+              value="Nada me impede"
+            >
+              Nada me impede
+            </option>
+            <option className="hover:bg-selectiveyellow-200" value="Outro">
+              Outro
+            </option>
           </select>
         </div>
       </div>

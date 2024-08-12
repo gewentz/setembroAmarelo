@@ -3,11 +3,29 @@ import Formulario from "./components/form"
 
 function App() {
 
-  const [questionarios, setQuestionarios] = useState([]);
-  const addQuestionario = (novoQuestionario) => {
-    setQuestionarios([...questionarios, novoQuestionario]);
-  }; 
-  
+  interface Questionario {
+    q1: string;
+    q2: string;
+    q3: string;
+    q4: string;
+    q5: string;
+    q6: string;
+    q7: string;
+    q8: string;
+    q9: string;
+    q10: string;
+    q11: string;
+    q12: string;
+    q13: string;
+    q14: string;
+    q15: string;
+  }
+
+  const [questionarios, setQuestionarios] = useState<Questionario[]>([]);
+  const addQuestionario = (novoQuestionario: Questionario) => {
+  setQuestionarios([...questionarios, novoQuestionario]);
+  };
+
   return (
     <main className="flex flex-col w-full h-full items-center bg-gradient-to-t from-selectiveyellow-50 to-selectiveyellow-200">
 
