@@ -8,7 +8,7 @@ function Counter() {
     async function fetchData() {
       try {
         const response = await axios.get('https://backend-setembro-amarelo.onrender.com/questionario');
-        setTotalRespostas(response.data.questionarios.length);
+        setTotalRespostas(response.data.length);
       } catch (error) {
         console.error("Erro ao buscar dados da API:", error);
       }

@@ -51,6 +51,10 @@ const Formulario = ({ addQuestionario }: Props) => {
     });
   };
 
+  function exibirAlerta() {
+    alert("Obrigado(a) por participar, todas as respostas são enviadas de forma anônima, nenhum dado de usuário é coletado para esta pesquisa!");
+}
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -90,6 +94,7 @@ const Formulario = ({ addQuestionario }: Props) => {
         q14: "",
         q15: "",
       });
+      exibirAlerta();
     } catch (err: unknown) {
       if (err instanceof Error) {
         if (err.message) {
@@ -184,8 +189,7 @@ const Formulario = ({ addQuestionario }: Props) => {
 
       <div className="flex flex-col gap-1">
         <label>
-          4- Você já foi/teve contato com alguém que necessitou de ajuda
-          psicológica?
+          4- Você já foi/teve contato com alguém que necessitou de ajuda psicológica?
         </label>
         <div className="flex gap-3 ml-2">
           <select
@@ -232,7 +236,7 @@ const Formulario = ({ addQuestionario }: Props) => {
       </div>
 
       <div className="flex flex-col gap-1">
-        <label>6- O que você acha da ajuda psicológica:</label>
+        <label>6- O que você acha da ajuda psicológica?</label>
         <div className="flex gap-3 ml-2">
           <select
             required
@@ -300,8 +304,7 @@ const Formulario = ({ addQuestionario }: Props) => {
 
       <div className="flex flex-col gap-1">
         <label>
-          8- Você já ingeriu bebidas alcoólicas ou cigarros/palheiros/pods antes
-          da maioridade (18 anos)?
+          8- Você já ingeriu bebidas alcoólicas ou cigarros/palheiros/pods antes da maioridade (18 anos)?
         </label>
         <div className="flex gap-3 ml-2">
           <select
@@ -332,8 +335,7 @@ const Formulario = ({ addQuestionario }: Props) => {
 
       <div className="flex flex-col gap-1">
         <label>
-          9- Como você avalia a assistência psicológica disponível na sua
-          cidade?
+          9- Como você avalia a assistência psicológica disponível na sua cidade?
         </label>
         <div className="flex gap-3 ml-2">
           <select
@@ -480,8 +482,7 @@ const Formulario = ({ addQuestionario }: Props) => {
 
       <div className="flex flex-col gap-1">
         <label>
-          15- Quais fatores você acredita serem os principais obstáculos para o
-          acesso à saúde mental?
+          15- Quais fatores você acredita serem os principais obstáculos para o acesso à saúde mental?
         </label>
         <div className="flex gap-3 ml-2">
           <select
